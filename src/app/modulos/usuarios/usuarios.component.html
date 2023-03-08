@@ -1,0 +1,78 @@
+<h1>USUARIOS</h1>
+
+<button class="btn btn-primary" (click)="mostrar(1)">Insertar Usuario</button><br><br>
+
+<div id="formulario" *ngIf="verf==true">
+    <div class="row">
+        <div class="col-lg-6">
+            <input type="text" id="nombre" class="form-control" [(ngModel)]="user.nombre"><br>
+            <span style="color: red;" *ngIf="validnombre==false">Insertar Nombre</span>
+        </div>
+        <div class="col-lg-6">
+            <input type="email" id="correo" class="form-control" [(ngModel)]="user.correo"><br>
+            <span style="color: red;" *ngIf="validcorreo==false">Insertar Correo</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <input type="password" id="clave" class="form-control" [(ngModel)]="user.clave"><br>
+            <span style="color: red;" *ngIf="validclave==false">Insertar Clave</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <input type="text" id="direccion" class="form-control" [(ngModel)]="user.direccion"><br>
+            <span style="color: red;" *ngIf="validdireccion==false">Insertar Direccioón</span>
+        </div>
+        <div class="col-lg-6">
+            <input type="text" id="celular" class="form-control" [(ngModel)]="user.celular"><br>
+            <span style="color: red;" *ngIf="validcelular==false">Insertar Celular</span>
+        </div>
+    </div>
+
+    <!--<div class="col-lg-6">
+        <select id="tipo" class="form-control form-select">
+                <option value="Administrador" label="Administrador">Administrador</option>
+                <option value="General" label="General">General</option>
+            </select>
+    </div>-->
+</div>
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3">
+        <button class="btn btn-primary" (click)="ingresar()">Guardar</button>
+    </div>
+    <div class="col-lg-3">
+        <button class="btn btn-secondary" (click)="mostrar(0)">Cancelar</button>
+    </div>
+    <div class="col-lg-3"></div>
+</div>
+
+
+<br>
+<div class="table-responsive">
+    <table class="table table-success table-striped" border="2">
+        <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Dirección</th>
+            <th>Celular</th>
+            <th>Acciones</th>
+        </tr>
+        <!--mostrar los usuarios-->
+        <tr *ngFor="let item of usuario">
+            <td>{{item.nombre}}</td>
+            <td>{{item.correo}}</td>
+            <td>{{item.direccion}}</td>
+            <td>{{item.celular}}</td>
+            <td>
+                <a>
+                    <span class="fas fa-edit editar" title="Editar"></span>
+                </a>
+                <a (click)="pregunta(item.id_usuario, item.nombre)">
+                    <span class="fas fa-trash eliminar" title="Eliminar"></span>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>

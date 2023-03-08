@@ -1,0 +1,18 @@
+input,
+select,
+button {
+    margin-top: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: gray;
+}
+
+.editar {
+    color: aqua;
+    cursor: pointer;
+}
+
+.eliminar {
+    color: coral;
+    cursor: pointer;
+}

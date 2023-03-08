@@ -22,4 +22,5 @@ export class UsuarioService {
   edit(datos:any){
     return this.http.post(`${this.url}editar.php`, JSON.stringify(datos));
   } 
+  
 }
