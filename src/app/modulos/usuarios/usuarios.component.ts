@@ -12,6 +12,7 @@ export class UsuariosComponent  implements OnInit {
   //variables globales
 verf= false;
 usuario: any;
+iduser: any;
 user= {
   nombre: "",
   correo: "",
@@ -25,6 +26,7 @@ validcorreo =true;
 validclave =true;
 validdireccion =true;
 validcelular =true;
+beditar = false;
 
 
   constructor (private suser: UsuarioService) {}
@@ -39,6 +41,9 @@ mostrar(dato:any) {
   switch(dato){
     case 0:
       this.verf = false;
+      this.beditar = false;
+      this.iduser = "";
+      this.limpiar();
       break;
       case 1:
         this.verf = true;
@@ -134,5 +139,30 @@ borrarusuario(id:any){
     }
   });
 
+}
+cargardatos(datos:any, id: number){
+  //console.log(datos);
+  this.user.nombre = datos.nombre;
+  this.user.correo = datos.correo;
+  this.user.clave = datos.clave;
+  this.user.direccion = datos.direccion;
+  this.user.celular = datos.celular;
+  this.iduser = id;
+  this.mostrar(1);
+  this.beditar=true;
+}
+editar(){
+   //console.log(this.cat)
+this.validar();
+if(this.validnombre==true && this.validcorreo== true && this.validclave== true && this.validdireccion== true && this.validcelular== true){
+  this.suser.edit(this.user, this.iduser).subscribe((datos:any) => {
+    if (datos['resultado']=='OK') {
+      //alert(datos['mensaje']);
+      this.consulta();
+    }
+  });
+  this.mostrar(0);
+  
+}
 }
 }
