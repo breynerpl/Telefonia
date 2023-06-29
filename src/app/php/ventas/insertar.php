@@ -8,11 +8,11 @@ $params = json_decode($json);
 require("../conexion.php");
 
 //$ins = "insert into ventas(fecha, cantidad, subtotal, total, vendedor) values('Prueba', 'prueba', 'prueba', 'prueba', 'Invitado')";
-$ins = "insert into ventas(fecha, cantidad, subtotal, total, vendedor) values('$params->fecha', '$params->cantidad', '$params->subtotal', '$params->total', '$params->vendedor')";
+$ins = "INSERT into ventas(fecha, cantidad, subtotal, total, vendedor, fo_producto) values('$params->fecha', '$params->cantidad', '$params->subtotal', '$params->total', '$params->vendedor', $params->fo_producto)";
 
  mysqli_query($conexion, $ins) or die ('no inserto');
 
- class Resault {}
+ class Resault {} 
 
  $response = new Resault ();
  $response->resultado = 'OK';

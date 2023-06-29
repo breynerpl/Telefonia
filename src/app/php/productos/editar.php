@@ -7,8 +7,7 @@ $params = json_decode($json);
 
 require("../conexion.php");
 
-$editar = "UPDATE productos SET codigo = '$params->codigo', nombre ='$params->nombre',
-stock ='$params->stock' WHERE id_productos =$params->id_productos";
+$editar = "UPDATE productos SET codigo ='$params->codigo',nombre = '$params->nombre', precio_venta = $params->precio_venta, fo_marca = $params->fo_marca, precio_compra=  $params->precio_compra, stock = $params->stockWHERE id_productos =$params->id_productos";
  
  mysqli_query($conexion, $editar) or die ('no edito');
 

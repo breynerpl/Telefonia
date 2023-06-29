@@ -5,28 +5,28 @@
 <div id="formulario" *ngIf="verf==true">
     <div class="row">
         <div class="col-lg-6">
-            <input type="text" id="nombre" class="form-control" [(ngModel)]="user.nombre"><br>
+            <input type="text" id="nombre" class="form-control" [(ngModel)]="user.nombre" placeholder="Ingrese nombre"><br>
             <span style="color: red;" *ngIf="validnombre==false">Insertar Nombre</span>
         </div>
         <div class="col-lg-6">
-            <input type="email" id="correo" class="form-control" [(ngModel)]="user.correo"><br>
+            <input type="email" id="correo" class="form-control" [(ngModel)]="user.correo" placeholder="Ingrese correo"><br>
             <span style="color: red;" *ngIf="validcorreo==false">Insertar Correo</span>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-6">
-            <input type="password" id="clave" class="form-control" [(ngModel)]="user.clave"><br>
-            <span style="color: red;" *ngIf="validclave==false">Insertar Clave</span>
+            <input type="text" id="direccion" class="form-control" [(ngModel)]="user.direccion" placeholder="Ingrese dirección"><br>
+            <span style="color: red;" *ngIf="validdireccion==false">Insertar Direccioón</span>
+        </div>
+        <div class="col-lg-6">
+            <input type="text" id="celular" class="form-control" [(ngModel)]="user.celular" placeholder="Ingrese celular"><br>
+            <span style="color: red;" *ngIf="validcelular==false">Insertar Celular</span>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-6">
-            <input type="text" id="direccion" class="form-control" [(ngModel)]="user.direccion"><br>
-            <span style="color: red;" *ngIf="validdireccion==false">Insertar Direccioón</span>
-        </div>
-        <div class="col-lg-6">
-            <input type="text" id="celular" class="form-control" [(ngModel)]="user.celular"><br>
-            <span style="color: red;" *ngIf="validcelular==false">Insertar Celular</span>
+            <input type="password" id="clave" class="form-control" [(ngModel)]="user.clave" placeholder="Ingrese clave"><br>
+            <span style="color: red;" *ngIf="validclave==false">Insertar Clave</span>
         </div>
     </div>
 

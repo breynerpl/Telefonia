@@ -4,11 +4,12 @@ header ("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, A
 
 $json = file_get_contents('php://input');
 $params = json_decode($json);
+ 
 
-require("../conexion.php");
+require("../conexion.php"); 
 
 $editar = "UPDATE bodega SET fecha = '$params->fecha', cantidad ='$params->cantidad',
-stock ='$params->stock' WHERE id_bodega =$params->id_bodega";
+stock ='$params->stock', nom_encargado ='$params->nom_encargado', fo_producto ='$params->fo_producto' WHERE id_bodega =$params->id_bodega";
  
  mysqli_query($conexion, $editar) or die ('no edito');
 

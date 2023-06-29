@@ -4,12 +4,10 @@ header ("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, A
 
 require("../conexion.php");
 
-$con = "SELECT b.*, p.nombre AS nproducto FROM bodega b 
-INNER JOIN productos p ON b.id_bodega = p.id_productos 
-ORDER BY b.fecha";
-$res =mysqli_query($conexion, $con) or die('no consulto stock');
+$con = "SELECT * FROM productos ORDER BY nombre";
+$res =mysqli_query($conexion, $con) or die('no consulto marca');
 
-$vec =[]; 
+$vec =[];
 while ($reg=mysqli_fetch_array($res))
 {
     $vec[]=$reg;

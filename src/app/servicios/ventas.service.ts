@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class VentasService {
+export class VentasService { 
 
   url='http://localhost/telefonia/src/app/php/ventas/';
 
@@ -12,6 +12,9 @@ export class VentasService {
 
   consultar() {
     return this.http.get(`${this.url}consulta.php`);
+  }
+  consultar_producto(){
+    return this.http.get(`${this.url}consulta_producto.php`);
   }
   insertar(articulo:any){
     return this.http.post(`${this.url}insertar.php`, JSON.stringify(articulo));

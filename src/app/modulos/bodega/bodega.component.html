@@ -1,0 +1,90 @@
+<h1>BODEGA</h1>
+
+<button class="btn btn-primary" (click)="mostrar(1)">Insertar Stock </button><br><br>
+
+<div id="formulario" *ngIf="verf==true">
+    <div class="row">
+        <div class="col-lg-6">
+            <input type="date" class="form-control" [(ngModel)]="bode.fecha">
+            <!--<input type="text" id="fecha" class="form-control" [(ngModel)]="bode.fecha" placeholder="Fecha">--><br>
+            <span style="color: red;" *ngIf="validfecha==false">Insertar Fecha</span>
+        </div>
+        <div class="col-lg-6">
+            <select id="fo_producto" class="form-control form-select" [(ngModel)]="bode.fo_producto">
+            <option value="0" label="Seleccionar producto">Seleccionar producto</option>
+            <option *ngFor="let itemp of productos" value="{{itemp.id_productos}}" label="{{itemp.nombre}}">{{itemp.nombre}}</option>
+           </select>
+            <span style="color: red;" *ngIf="validfoproducto==false">Insertar producto</span>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <input type="text" id="cantidad" class="form-control" [(ngModel)]="bode.cantidad" placeholder="Cantidad"><br>
+            <span style="color: red;" *ngIf="validcantidad==false">Insertar Cantidad</span>
+        </div>
+        <div class="col-lg-6">
+            <input type="text" id="subtotal" class="form-control" [(ngModel)]="bode.stock" placeholder="Stock"><br>
+            <span style="color: red;" *ngIf="validstock==false">Insertar stock</span>
+        </div>
+
+    </div>
+    <div class="col-lg-6">
+        <!--<input type="text" id="total" class="form-control" [(ngModel)]="bode.nom_encargado" placeholder="Nombre encargado">-->
+        <select id="nom_encargado" class="form-control form-select" [(ngModel)]="bode.nom_encargado">
+            <option value="0" label="Seleccione Encargado">Seleccionar Encargado</option>
+            <option >Alejandra Sanchez B</option>
+            <option >Luis Fernando B</option>
+            <option >Breyner Pana</option>
+           </select><br>
+        <span style="color: red;" *ngIf="validnomencargado==false">Insertar nombre encargado</span>
+    </div>
+
+
+    <!--<div class="col-lg-6">
+        <select id="tipo" class="form-control form-select">
+                <option value="Administrador" label="Administrador">Administrador</option>
+                <option value="General" label="General">General</option>
+            </select>
+    </div>-->
+</div>
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3">
+        <button *ngIf="beditar==false" class="btn btn-primary" (click)="ingresar()">Guardar</button>
+        <button *ngIf="beditar==true" class="btn btn-primary" (click)="editar()">Editar</button>
+    </div>
+    <div class="col-lg-3">
+        <button class="btn btn-secondary" (click)="mostrar(0)">Cancelar</button>
+    </div>
+    <div class="col-lg-3"></div>
+</div>
+<br>
+<div class="table-responsive">
+    <table class="table table-success table-striped" border="2">
+        <tr>
+            <th>Fecha</th>
+            <th>Cantidad</th>
+            <th>Stock</th>
+            <th>Encargado</th>
+            <th>Producto</th>
+        </tr>
+        <!--mostrar los usuarios-->
+        <tr *ngFor="let item of bodega">
+            <td>{{item.fecha}}</td>
+            <td>{{item.cantidad}}</td>
+            <td>{{item.stock}}</td>
+            <td>{{item.nom_encargado}}</td>
+            <td>{{item.nproducto}}</td>
+            <td>
+                <a (click)="cargardatos(item, item.id_bodega)">
+                    <span class="fas fa-edit editar" title="Editar"></span>
+                </a>
+                <a (click)="pregunta(item.id_bodega, item.fecha)">
+                    <span class="fas fa-trash eliminar" title="Eliminar"></span>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+</div>

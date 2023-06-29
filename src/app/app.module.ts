@@ -13,6 +13,10 @@ import { PrincipalComponent } from './modulos/principal.component';
 import { DashboardComponent } from './modulos/dashboard/dashboard.component';
 import { LoginComponent } from './modulos/login/login.component';
 import { UsuariosComponent } from './modulos/usuarios/usuarios.component';
+import { ProductosComponent } from './modulos/productos/productos.component';
+import { VentasComponent } from './modulos/ventas/ventas.component';
+import { BodegaComponent } from './modulos/bodega/bodega.component';
+import { ComprasComponent } from './modulos/compras/compras.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { UsuariosComponent } from './modulos/usuarios/usuarios.component';
     PrincipalComponent,
     DashboardComponent,
     LoginComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    ProductosComponent,
+    VentasComponent,
+    BodegaComponent,
+    ComprasComponent
   ],
   imports: [
     BrowserModule,

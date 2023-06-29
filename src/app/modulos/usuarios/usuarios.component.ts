@@ -15,7 +15,7 @@ usuario: any;
 iduser: any;
 user= {
   nombre: "",
-  correo: "",
+  correo: "", 
   clave: "",
   direccion:"",
   celular:""
@@ -105,7 +105,7 @@ if(this.validnombre==true && this.validcorreo== true && this.validclave== true &
     }
   });
   this.mostrar(0);
-  this.limpiar();
+  this.limpiar(); 
 }
   
 }
@@ -140,7 +140,7 @@ borrarusuario(id:any){
   });
 
 }
-cargardatos(datos:any, id: number){
+cargardatos(datos:any, id: number){ 
   //console.log(datos);
   this.user.nombre = datos.nombre;
   this.user.correo = datos.correo;

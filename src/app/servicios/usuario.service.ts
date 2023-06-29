@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root'  
 })
 export class UsuarioService {
 
@@ -22,6 +22,6 @@ export class UsuarioService {
   edit(datos:any, id:number){
     return this.http.post(`${this.url}editar.php?id=${id}`, JSON.stringify(datos));
   } 
-  
+   
 
 }
