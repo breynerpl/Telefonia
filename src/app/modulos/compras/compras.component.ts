@@ -16,7 +16,8 @@ export class ComprasComponent implements OnInit {
   cantidad: "", 
   subtotal: "",
   total:"",
-  impuesto:""
+  impuesto:"",
+  proveedor:""
  };
  //para validar
  validfecha =true;
@@ -24,6 +25,7 @@ validcantidad =true;
 validsubtotal =true;
 validtotal =true;
 validimpuesto =true;
+validproveedor =true;
  beditar = false;
  
  
@@ -56,6 +58,7 @@ validimpuesto =true;
    this.comp.subtotal = "";
    this.comp.total = "";
    this.comp.impuesto = "";
+   this.comp.proveedor= "";
  }
  
  //validar
@@ -85,7 +88,13 @@ validimpuesto =true;
   }else{
     this.validimpuesto = true;
   }
+  if(this.comp.proveedor ==""){
+    this.validproveedor =false;
+  }else{
+    this.validproveedor = true;
   }
+  }
+  
  consulta() {
    this.scomp.consultar().subscribe((result:any) => {
      this.compras = result;
@@ -95,7 +104,7 @@ validimpuesto =true;
  ingresar() {
    //console.log(this.cat)
  this.validar();
- if(this.validfecha==true && this.validcantidad== true && this.validsubtotal== true && this.validtotal== true && this.validimpuesto== true){
+ if(this.validfecha==true && this.validcantidad== true && this.validsubtotal== true && this.validtotal== true && this.validimpuesto== true && this.validproveedor== true){
    this.scomp.insertar(this.comp).subscribe((datos:any) => {
      if (datos['resultado']=='OK') {
        //alert(datos['mensaje']);

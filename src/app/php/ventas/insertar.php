@@ -7,8 +7,8 @@ $params = json_decode($json);
 
 require("../conexion.php");
 
-//$ins = "insert into ventas(fecha, cantidad, subtotal, total, vendedor) values('Prueba', 'prueba', 'prueba', 'prueba', 'Invitado')";
-$ins = "INSERT into ventas(fecha, cantidad, subtotal, total, vendedor, fo_producto) values('$params->fecha', '$params->cantidad', '$params->subtotal', '$params->total', '$params->vendedor', $params->fo_producto)";
+//$ins = "insert into ventas(fecha, cantidad, subtotal, total, vendedor, cliente) values('Prueba', 'prueba', 'prueba', 'prueba', 'Invitado')";
+$ins = "INSERT into ventas(fecha, cantidad, subtotal, total, vendedor, fo_producto, cliente) values('$params->fecha', '$params->cantidad', '$params->subtotal', '$params->total', '$params->vendedor', '$params->fo_producto', '$params->cliente')";
 
  mysqli_query($conexion, $ins) or die ('no inserto');
 

@@ -9,6 +9,13 @@
             <span style="color: red;" *ngIf="validfecha==false">Insertar Fecha</span>
         </div>
         <div class="col-lg-6">
+            <input type="text" id="provedor" class="form-control" [(ngModel)]="comp.proveedor" placeholder="Ingrese proveedor"><br>
+            <span style="color: red;" *ngIf="validproveedor==false">Insertar Provedor</span>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
             <select id="Producto" class="form-control form-select" [(ngModel)]="comp.impuesto" placeholder="Producto">
                 <option value="0" label="Seleccione Producto">Seleccionar Vendedor</option>
                 <option >IPHONE 5</option>
@@ -21,19 +28,17 @@
                </select><br>
             <span style="color: red;" *ngIf="validimpuesto==false">Insertar producto</span>
         </div>
-
-    </div>
-    <div class="row">
         <div class="col-lg-6">
             <input type="number" id="cantidad" class="form-control" [(ngModel)]="comp.cantidad" placeholder="Ingrese cantidad"><br>
             <span style="color: red;" *ngIf="validcantidad==false">Insertar Cantidad</span>
         </div>
+
+    </div>
+    <div class="row">
         <div class="col-lg-6">
             <input type="number" id="subtotal" class="form-control" [(ngModel)]="comp.subtotal" placeholder="Ingrese subtotal"><br>
             <span style="color: red;" *ngIf="validsubtotal==false">Insertar Subtotal</span>
         </div>
-    </div>
-    <div class="row">
         <div class="col-lg-6">
             <select id="total" class="form-control form-select" [(ngModel)]="comp.total" placeholder="total">
                <option value="total">total</option>
@@ -68,6 +73,7 @@
     <table class="table table-success table-striped" border="2">
         <tr>
             <th>Fecha</th>
+            <th>Proveedor</th>
             <th>Producto</th>
             <th>Cantidad</th>
             <th>Subtotal</th>
@@ -77,6 +83,7 @@
         <!--mostrar los usuarios-->
         <tr *ngFor="let item of compras">
             <td>{{item.fecha}}</td>
+            <td>{{item.proveedor}}</td>
             <td style="text-align: left;">$ {{item.impuesto}}</td>
             <td>{{item.cantidad}}</td>
             <td style="text-align: left;">$ {{item.subtotal}}.00</td>

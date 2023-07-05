@@ -25,7 +25,8 @@ export class VentasComponent  implements OnInit {
     subtotal: "",
     total:"",
     vendedor:"",
-    fo_producto:""
+    fo_producto:"",
+    cliente:""
   };
   //variables fecha
   fecha: any;
@@ -41,6 +42,7 @@ export class VentasComponent  implements OnInit {
   validtotal =true;
   validvendedor =true;
   validfoproducto = true;
+  validcliente= true;
   beditar = false;
 cantidad: any;
   
@@ -133,6 +135,11 @@ if (this.diaa < 10){
   }else{
     this.validfoproducto = true;
   }
+  if(this.vent.cliente == ""){
+    this.validcliente =false;
+  }else{
+    this.validcliente =true;
+  }
   }
   consulta() {
     this.svent.consultar().subscribe((result:any) => {
@@ -149,7 +156,7 @@ if (this.diaa < 10){
   ingresar() {
     //console.log(this.cat)
   this.validar();
-  if(this.validfecha==true && this.validcantidad== true && this.validsubtotal== true && this.validtotal== true && this.validvendedor== true && this.validfoproducto== true){
+  if(this.validfecha==true && this.validcantidad== true && this.validsubtotal== true && this.validtotal== true && this.validvendedor== true && this.validfoproducto== true && this.validcliente== true){
     this.svent.insertar(this.vent).subscribe((datos:any) => {
       console.log(datos);
        datos['resultado']
@@ -169,16 +176,7 @@ if (this.diaa < 10){
       this.productos = result;
     })
   }
-  bproducto(){
-    if(this.datop==""){
-      this,this.conproducto();
-    }
-    else{
-      this.sproducto.filter(this.datop).subscribe((result:any) =>{
-        this.productos= result;
-      })
-    }
-  }
+  
   selproducto(idp:number){
 let cantidad = Number(prompt("Cuantos va a llevar?"));
 //this.arrprod =[];

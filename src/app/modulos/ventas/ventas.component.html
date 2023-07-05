@@ -9,32 +9,40 @@
             <span style="color: red;" *ngIf="validfecha==false">Insertar Fecha</span>
         </div>
         <div class="col-lg-6">
+            <input type="text" id="cliente" class="form-control" [(ngModel)]="vent.cliente" placeholder="Ingrese cliente"><br>
+            <span style="color: red;" *ngIf="validcliente==false">Insertar Cliente</span>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
             <select id="fo_producto" class="form-control form-select" [(ngModel)]="vent.fo_producto">
             <option value="0" label="Seleccionar producto">Seleccionar producto</option>
             <option *ngFor="let itemp of productos" value="{{itemp.id_productos}}" label="{{itemp.nombre}}">{{itemp.nombre}}</option>
            </select>
             <span style="color: red;" *ngIf="validfoproducto==false">Insertar producto</span>
         </div>
-
-    </div>
-    <div class="row">
         <div class="col-lg-6">
             <input type="number" id="cantidad" class="form-control" [(ngModel)]="vent.cantidad" placeholder="Cantidad"><br>
             <span style="color: red;" *ngIf="validcantidad==false">Insertar Cantidad</span>
         </div>
+
+    </div>
+    <div class="row">
         <div class="col-lg-6">
             <input type="number" id="subtotal" class="form-control" [(ngModel)]="vent.subtotal" placeholder="Subtotal"><br>
             <span style="color: red;" *ngIf="validsubtotal==false">Insertar subtotal</span>
         </div>
 
-    </div>
-    <div class="row">
         <div class="col-lg-6">
             <select id="total" class="form-control form-select" [(ngModel)]="vent.total" placeholder="total">
                 <option >total</option>
                </select><br>
             <span style="color: red;" *ngIf="validtotal==false">Insertar total</span>
         </div>
+
+    </div>
+    <div class="row">
         <div class="col-lg-6">
             <select id="nom_encargado" class="form-control form-select" [(ngModel)]="vent.vendedor" placeholder="Vendedor">
                 <option value="0" label="Seleccione Vendedor">Seleccionar Vendedor</option>
@@ -70,20 +78,22 @@
     <table class="table table-success table-striped" border="2">
         <tr>
             <th>Fecha</th>
+            <th>Cliente</th>
+            <th>Producto</th>
             <th>Cantidad</th>
             <th>Subtotal</th>
             <th>Total</th>
             <th>Vendedor</th>
-            <th>Producto</th>
         </tr>
         <!--mostrar los usuarios-->
         <tr *ngFor="let item of ventas">
             <td>{{item.fecha}}</td>
+            <td>{{item.cliente}}</td>
+            <td>{{item.mproducto}}</td>
             <td>{{item.cantidad}}</td>
             <td style="text-align: left;">$ {{item.subtotal}}.00</td>
             <td style="text-align: left;">$ {{item.subtotal*item.cantidad}}.00</td>
             <td>{{item.vendedor}}</td>
-            <td>{{item.mproducto}}</td>
             <!-- <td>
                 <a>
                     <span class="fas fa-edit editar" title="Editar"></span>

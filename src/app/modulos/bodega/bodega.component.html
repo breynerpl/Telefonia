@@ -64,18 +64,19 @@
     <table class="table table-success table-striped" border="2">
         <tr>
             <th>Fecha</th>
+            <th>Producto</th>
             <th>Cantidad</th>
             <th>Stock</th>
             <th>Encargado</th>
-            <th>Producto</th>
         </tr>
         <!--mostrar los usuarios-->
         <tr *ngFor="let item of bodega">
             <td>{{item.fecha}}</td>
+            <td>{{item.nproducto}}</td>
             <td>{{item.cantidad}}</td>
             <td>{{item.stock}}</td>
             <td>{{item.nom_encargado}}</td>
-            <td>{{item.nproducto}}</td>
+
             <td>
                 <a (click)="cargardatos(item, item.id_bodega)">
                     <span class="fas fa-edit editar" title="Editar"></span>
